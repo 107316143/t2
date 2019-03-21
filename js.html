@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<script language="javascript" type="text/javascript">
+           function Button1_onclick() {
+
+            var a = document.getElementById("j01").value;
+            var b = document.getElementById("j02").value;
+            if (a == "") {
+                alert("姓名必填");
+            }
+            if (isNaN(b) == false) {
+                alert("電話號碼要為數字");
+            }
+        }
+            function Button2_onclick() {
+            var patient = { "name": "Chalmers", "telecom": 12345678, "gender": "male", "birthDate": "1974-12-25" };
+            document.getElementById("j01").value = patient.name;
+            document.getElementById("j02").value = patient.telecom;
+            document.getElementById("j03").value = patient.birthDate;
+            var d = document.getElementsByName("性別");
+            for (var i = 0; i < d.length; i++) {
+                if (d[i].value == patient.gender) {
+                    d[i].checked = true;
+                }
+                else {
+                    d[i].checked = false;
+                }
+            }
+        }
+            function Button3_onclick() {
+            var a = document.getElementById("j01").value;
+            var b = document.getElementById("j02").value;
+            var c = document.getElementById("j03").value;
+            var d;
+            var z = document.getElementsByName("性別");
+            for (var i = 0; i < z.length; i++) {
+                if (z[i].checked == true) {
+                    d = z[i].value;
+                }
+            }
+            alert("姓名:" + a + ",電話:" + b + ",生日:" + c + ",性別:" + d);
+        }
+  </script>
+  <form action="http://203.64.84.113/x/RQ_RS.aspx" method="post">
+  <table border="1">
+　<tr>
+　<td>姓名:<br>
+  <input id="j01" name="姓名 required="required"/></td>
+　<td>電話號碼:<br>
+  <input id="j02" name="電話號碼" value=""></td></tr>
+　<tr>
+　<td>生日:<br>
+  <input id="j03" name="生日" value=""></td>
+　<td>性別:<br>
+  <input type="radio" name="性別" value="male">男
+  <input type="radio" name="性別" value="female">女
+  <input type="radio" name="性別" value="其他"> 其他</td>
+  </tr>
+  <tr>
+  <td>初診日期:<br>
+  <input type="text" name="初診日期" value=""></td>
+　<td>地址:<br>
+  <input type="text" name="地址" value=""></td></tr>
+  <tr>
+  <td>血型:<br>
+  <input type="radio" name="血型" value="A" checked> A
+  <input type="radio" name="血型" value="B"> B
+  <input type="radio" name="血型" value="O"> O
+  <input type="radio" name="血型" value="AB"> AB</td>
+  </tr>
+  <tr>
+　<td><p><strong>以下狀況,你有那些症狀?</strong></p>
+  <input type="checkbox" name="症狀1" value="沒有劇烈運動,但心跳加快">沒有劇烈運動,但心跳加快
+  <input type="checkbox" name="症狀2" value="最近情緒容易緊張或焦慮">最近情緒容易緊張或焦慮<br>
+  <input type="checkbox" name="症狀3" value="常失眠">常失眠
+  <input type="checkbox" name="症狀4" value="食量增加,體重卻不增反降">食量增加,體重卻不增反降<br>
+  <input type="checkbox" name="症狀5" value="手會不自覺顫抖">手會不自覺顫抖
+  <input type="checkbox" name="症狀6" value="變的怕熱">變的怕熱
+  <input type="checkbox" name="症狀7" value="經期變得不規律">經期變得不規律</td>
+  <td><strong>年齡</strong><br><br>
+  <input list="browsers" name="年齡">
+  <datalist id="browsers">
+  <option value="學齡兒童:6歲-13歲">
+  <option value="青少年:14歲-17歲">
+  <option value="青年人:18歲-25歲">
+  <option value="成年人:26歲-64歲">
+  <option value="老年人:65歲以上">
+  </table><br>
+  <input type="submit" value="Submit">
+ </form><br>
+ <button type="button" onclick="Button1_onclick()">檢查</button>
+ <button type="button" onclick="Button2_onclick()">給值</button>
+ <button type="button" onclick="Button3_onclick()">呈現</button>
+</body>
+</html>
